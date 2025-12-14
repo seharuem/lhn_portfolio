@@ -21,7 +21,7 @@ export default function Wheel() {
 
       gsap.to(window, {
         scrollTo: scrollAmount,
-        duration: 1,
+        duration: 0.3,
         ease: 'power2.inOut',
         onComplete: () => {
           isScrolling = false;

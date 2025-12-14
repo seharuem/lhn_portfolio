@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Bg = styled.div.attrs({
-	className: 'w-full h-screen flex flex-col items-center justify-center relative'
+	className: 'w-full min-w-7xl h-screen flex flex-col items-center justify-center relative'
 })``;
 
 export const Box = styled.div.attrs({
@@ -35,12 +35,23 @@ export const Box = styled.div.attrs({
 	&.rb {
 		border-width: 0 1px 1px 0;
 	}
+
+	@media (max-width: 1280px) {
+		width: 6rem;
+		height: 6rem;
+	}
+`;
+
+export const Text = styled.div.attrs({
+	className: 'flex flex-col gap-10 items-end absolute break-keep text-8xl w-max'
+})`
+	@media (max-width: 1280px) {
+		font-size: 5rem;
+	}
 `;
 
 export const Name = styled(Box).attrs({
-	className: 'name text-8xl leading-32 border-1'
+	className: 'name border-1 flex items-center justify-center pt-3'
 })`
-	color: var(--main);
-	// text-shadow: 0 0 4px var(--main);
 	color: transparent;
 `;

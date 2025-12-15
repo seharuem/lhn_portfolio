@@ -14,15 +14,14 @@ export default function Wheel() {
 
       const direction = event.deltaY > 0 ? 1 : -1;
       const currentScroll = window.scrollY;
-      const windowHeight = window.innerHeight;
-      let scrollAmount = currentScroll + windowHeight * direction;
+      let scrollAmount = currentScroll + window.innerHeight * direction;
 
       isScrolling = true;
 
       gsap.to(window, {
         scrollTo: scrollAmount,
         duration: 0.3,
-        ease: 'power2.inOut',
+        ease: 'power2.out',
         onComplete: () => {
           isScrolling = false;
         }

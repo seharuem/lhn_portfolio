@@ -1,4 +1,4 @@
-import Load from './load';
+import Intro from './Intro';
 import './App.css';
 import Wheel from './Wheel';
 
@@ -7,7 +7,7 @@ function App() {
 
 	return (
 		<>
-			<Load />
+			<Intro />
 		</>
 	);
 }

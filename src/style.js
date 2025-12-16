@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Bg = styled.div.attrs({
-	className: 'w-full min-w-7xl h-screen flex flex-col items-center justify-center relative'
+	className: 'w-full min-w-7xl h-screen flex flex-col items-center justify-center relative overflow-hidden bg-(--bg)'
 })``;
 
 export const Box = styled.div.attrs({
@@ -77,8 +77,7 @@ export const Circle = styled.div.attrs({
 		border: inherit;
 		box-shadow: inherit;
 	}
-	&::after {
-		content: '';
+	div {
 		width: 2px;
 		height: 100%;
 		background: var(--main);

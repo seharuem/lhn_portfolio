@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
 export const aniTL = () => {
-	const tl = gsap.timeline();
+	const tl = gsap.timeline({ defaults: { duration: 0.3 } });
 
 	tl.from('#name1', { xPercent: 100, x: '1.25rem' })
 		.from('#name3', { xPercent: -100, x: '-1.25rem' }, '<')
@@ -26,8 +26,10 @@ export const aniTL = () => {
 		.to('.c2', { top: 'initial', bottom: 0, yPercent: 0 }, '<')
 		.to('.c1', { top: '50%', yPercent: -50 })
 		.to('.c2', { bottom: '50%', yPercent: 50 }, '<')
-		.to('.circle', { rotate: 90 })
-		.to('.circle', { backgroundColor: 'var(--main40)' });
+		.to('.cl', { rotate: 90 })
+		.to('.circle', { background: 'var(--mainGD)' })
+		.to(['.c1', '.line1', '#hello', '.lt', '.lb'], { x: -810, duration: 0.6 })
+		.to(['.c2', '.line2', '#textBox', '.rt', '.rb'], { x: 810, duration: 0.6 }, '<');
 
 	return tl;
 };

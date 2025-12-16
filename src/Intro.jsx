@@ -19,18 +19,11 @@ export default function Intro() {
 
 	useGSAP(
 		() => {
-			ScrollTrigger.normalizeScroll(true);
-
 			const tl = aniTL();
 
 			ScrollTrigger.create({
 				trigger: triggerRef.current,
-				end: '+=800%',
-				snap: {
-					snapTo: 1 / 8,
-					duration: 0.3,
-					ease: 'power2.out'
-				},
+				end: '+=1000%',
 				scrub: 1,
 				pin: true,
 				invalidateOnRefresh: true,
@@ -43,7 +36,7 @@ export default function Intro() {
 
 	return (
 		<>
-			<Bg ref={triggerRef} className='relative'>
+			<Bg ref={triggerRef}>
 				<Text id='hello' className='left-[100px] top-[100px]'>
 					안녕하세요.
 				</Text>
@@ -63,9 +56,14 @@ export default function Intro() {
 				))}
 
 				<CircleLine>
-					<Circle className='circle c1' />
-					<Circle className='circle c2' />
-					<div className='line w-px h-full bg-(--main) z-10'></div>
+					<Circle className='circle c1'>
+						<div className='cl' />
+					</Circle>
+					<Circle className='circle c2'>
+						<div className='cl' />
+					</Circle>
+					<div className='line line1 w-px h-full bg-(--main) z-10' />
+					<div className='line line2 w-px h-full bg-(--main) z-10' />
 				</CircleLine>
 			</Bg>
 		</>

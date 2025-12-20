@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Bg = styled.div.attrs({
 	className: 'w-full min-w-7xl h-screen flex flex-col items-center justify-center relative overflow-hidden bg-(--bg)'
 })``;
 
 export const Box = styled.div.attrs({
-	className: 'size-29 border-solid border-(--main)'
+	className: 'box size-29 border-solid border-(--main)'
 })`
 	scroll-behavior: smooth;
 	&:is(.lt, .rt, .lb, .rb) {
@@ -50,14 +50,27 @@ export const Text = styled.div.attrs({
 	}
 `;
 
+const shadow = keyframes`
+	to { text-shadow: 0 0 8px var(--main) }
+`;
+
 export const Name = styled(Box).attrs({
-	className: 'name border-1 flex items-center justify-center pt-3'
+	className: 'border-1 flex items-center justify-center pt-3'
 })`
-	color: transparent;
+	&.name {
+		color: transparent;
+		cursor: default;
+	}
+	&.click {
+		padding: 0;
+		font-size: 1.5rem;
+		color: var(--main);
+		animation: ${shadow} 0.6s alternate infinite;
+	}
 `;
 
 export const CircleLine = styled.div.attrs({
-	className: 'absolute w-50 h-full flex justify-center'
+	className: 'circleLine absolute inset-0 flex justify-center'
 })`
 	.line {
 		box-shadow: 0 0 4px var(--main);
@@ -89,5 +102,57 @@ export const Circle = styled.div.attrs({
 	}
 	&.c2 {
 		clip-path: inset(0 0 0 50%);
+	}
+`;
+
+export const Btn = styled.button.attrs({
+	type: 'button',
+	className: 'absolute top-20 right-20 text-(--main) font-bold flex items-center'
+})`
+	font-size: 24px;
+	&::before {
+		content: '';
+		height: 32px;
+		aspect-ratio: 1;
+		background: url('./skip.svg') center / contain no-repeat;
+		translate: 0 -2px;
+	}
+`;
+
+const tok = keyframes`
+to { translate: -50% 150% }`;
+
+export const Scroll = styled.div.attrs({
+	className:
+		'absolute bottom-20 left-1/2 -translate-1/2 rounded-full border-2 border-solid border-(--main) px-1 pt-4 pb-10 text-(--main) font-bold'
+})`
+	cursor: default;
+	box-shadow: 0 0 4px var(--main);
+	&::after {
+		content: '';
+		position: absolute;
+		width: 2px;
+		height: 12px;
+		border-radius: 8px;
+		left: 50%;
+		top: 50%;
+		translate: -50% 20%;
+		background: var(--main);
+		box-shadow: inherit;
+		animation: ${tok} 0.6s ease-out alternate infinite;
+	}
+`;
+
+export const Card = styled.div.attrs({
+	className: 'w-80 h-100 relative'
+})`
+	background: var(--main);
+	clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 2px;
+		background: var(--bg);
+		clip-path: inherit;
 	}
 `;

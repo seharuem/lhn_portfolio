@@ -1,12 +1,16 @@
 import gsap from 'gsap';
 
 export const aniTL = () => {
-	const tl = gsap.timeline({ defaults: { duration: 0.3 } });
+	const tl = gsap.timeline({ defaults: { duration: 0.2 } });
 
-	tl.from('#name1', { xPercent: 100, x: '1.25rem' })
+	tl.to('.click', { opacity: 0 })
+		.from('#name1', { xPercent: 100, x: '1.25rem' }, '<')
 		.from('#name3', { xPercent: -100, x: '-1.25rem' }, '<')
 		.to('.name', { boxShadow: '0 0 5px var(--main)' }, '<')
-		.from('#nameBox', { xPercent: -7 })
+		.fromTo('.scroll', { opacity: 0, yPercent: -100 }, { opacity: 1, yPercent: 0 }, '<')
+		.set('.click', { visibility: 'hidden' })
+		.to('.scroll', { opacity: 0, yPercent: 50 })
+		.from('#nameBox', { xPercent: -7 }, '<')
 		.from('.lt', { xPercent: 100, yPercent: 100, opacity: 0 }, '<')
 		.from('.rt', { xPercent: -100, yPercent: 100, opacity: 0 }, '<')
 		.from('.lb', { xPercent: 100, yPercent: -100, opacity: 0 }, '<')
@@ -17,7 +21,7 @@ export const aniTL = () => {
 			{ right: '100px', bottom: '100px', xPercent: 0, yPercent: 0 },
 			'<'
 		)
-		.from('#hello', { clipPath: 'inset(0 100% 0 0)', opacity: 0 })
+		.from('#hello', { clipPath: 'inset(0 100% 0 0)' })
 		.from('#textBox', { clipPath: 'inset(25% 0)' }, '<')
 		.to('.name', { color: 'var(--main)' })
 		.from('.circle', { opacity: 0 }, '<')
@@ -28,8 +32,8 @@ export const aniTL = () => {
 		.to('.c2', { bottom: '50%', yPercent: 50 }, '<')
 		.to('.cl', { rotate: 90 })
 		.to('.circle', { background: 'var(--mainGD)' })
-		.to(['.c1', '.line1', '#hello', '.lt', '.lb'], { x: -810, duration: 0.6 })
-		.to(['.c2', '.line2', '#textBox', '.rt', '.rb'], { x: 810, duration: 0.6 }, '<');
+		.to(['#hello', '#textBox', '.circleLine', '.box'], { opacity: 0, duration: 0.4 })
+		.from('.page', { clipPath: 'inset(0 100%)', duration: 0.4 }, '<');
 
 	return tl;
 };

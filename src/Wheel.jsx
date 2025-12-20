@@ -9,6 +9,15 @@ export default function Wheel() {
 		let isScrolling = false;
 
 		function handleWheel(event) {
+			const y = window.scrollY;
+			const vh = window.innerHeight;
+
+			if (y < vh) {
+				event.preventDefault();
+				window.scrollTo({ top: 0 });
+				return;
+			}
+
 			event.preventDefault();
 			if (isScrolling) return;
 
@@ -19,7 +28,7 @@ export default function Wheel() {
 
 			gsap.to(window, {
 				scrollTo: scrollAmount,
-				duration: 0.3,
+				duration: 0.2,
 				ease: 'power2.out',
 				onComplete: () => {
 					setTimeout(() => {
@@ -31,8 +40,6 @@ export default function Wheel() {
 
 		window.addEventListener('wheel', handleWheel, { passive: false });
 
-		return () => {
-			window.removeEventListener('wheel', handleWheel);
-		};
+		return () => window.removeEventListener('wheel', handleWheel);
 	}, []);
 }

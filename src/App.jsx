@@ -1,6 +1,6 @@
-import Intro from './Intro';
 import './App.css';
 import Wheel from './Wheel';
+import Intro from './Intro';
 
 function App() {
 	Wheel();

@@ -1,17 +1,16 @@
-import { Bg, Card } from './style';
+import { Bg, Card, Top } from './style';
 
-export default function Page() {
+export default function Page({ top }) {
 	return (
-		<Bg className='page z-10'>
+		<Bg className='page z-30'>
 			<div className='flex'>
 				<Card>
-					<div className='absolute z-10'>
-						
-					</div>
+					<div className='absolute z-10'></div>
 				</Card>
 				<Card></Card>
 				<Card></Card>
 			</div>
+			<Top onClick={top}>TOP</Top>
 		</Bg>
 	);
 }

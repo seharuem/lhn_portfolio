@@ -60,12 +60,16 @@ export const Name = styled(Box).attrs({
 	&.name {
 		color: transparent;
 		cursor: default;
+		transition: rotate 0.2s ease-out;
 	}
 	&.click {
 		padding: 0;
 		font-size: 1.5rem;
 		color: var(--main);
 		animation: ${shadow} 0.6s alternate infinite;
+	}
+	&.click:hover ~ &#name2 {
+		rotate: 45deg;
 	}
 `;
 
@@ -105,7 +109,10 @@ export const Circle = styled.div.attrs({
 	}
 `;
 
-export const Btn = styled.button.attrs({
+const skip = keyframes`
+to {translate: -8px -2px}`;
+
+export const Skip = styled.button.attrs({
 	type: 'button',
 	className: 'absolute top-20 right-20 text-(--main) font-bold flex items-center'
 })`
@@ -116,6 +123,21 @@ export const Btn = styled.button.attrs({
 		aspect-ratio: 1;
 		background: url('./skip.svg') center / contain no-repeat;
 		translate: 0 -2px;
+	}
+	&:hover::before {
+		animation: ${skip} 0.3s ease-out alternate infinite;
+	}
+`;
+
+export const Top = styled.button.attrs({
+	type: 'button',
+	className: 'absolute z-30 bottom-20 right-20 size-10 rounded-full bg-(--main) text-(--bg) font-extrabold pt-1 pl-0.5'
+})`
+	border: 2px solid var(--main);
+	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+	&:hover {
+		background-color: var(--bg);
+		color: var(--main);
 	}
 `;
 

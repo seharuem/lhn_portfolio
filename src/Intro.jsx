@@ -2,23 +2,18 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Bg, Btn, Scroll } from './style';
-import { aniTL } from './ani';
-import Shape from './Shape';
-import Page from './Page';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-export default function Intro() {
+export const useIntro = (trigger, ani) => {
 	const stRef = useRef(null);
-	const triggerRef = useRef(null);
 
 	useGSAP(
 		() => {
-			const tl = aniTL();
+			const tl = ani();
 
 			stRef.current = ScrollTrigger.create({
-				trigger: triggerRef.current,
+				trigger: trigger.current,
 				end: '+=1000%',
 				scrub: 1,
 				pin: true,
@@ -27,26 +22,16 @@ export default function Intro() {
 				markers: true
 			});
 		},
-		{ scope: triggerRef }
+		{ scope: trigger }
 	);
 
-	const skip = () => {
-		if (stRef.current) {
-			stRef.current.animation.progress(1);
-		}
-		window.scrollTo({
-			top: window.innerHeight * 10
-		});
+	const scroll = (time, top) => {
+		stRef.current?.animation.progress(time);
+		window.scrollTo({ top: top });
 	};
 
-	return (
-		<>
-			<Bg ref={triggerRef}>
-				<Shape className='test' />
-				<Btn onClick={skip}>SKIP</Btn>
-				<Scroll className='scroll'>scroll</Scroll>
-				<Page />
-			</Bg>
-		</>
-	);
-}
+	const skip = () => scroll(1, window.innerHeight * 10);
+	const top = () => scroll(0, 0);
+
+	return { skip, top };
+};

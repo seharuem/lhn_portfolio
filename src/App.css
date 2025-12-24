@@ -6,7 +6,7 @@
 }
 
 :root {
-	--bg: #242424;
+	--bg: #020014;
 	--main: #1abcfe;
 	--mainGD: linear-gradient(var(--main), #1abcfe40, var(--main));
 }

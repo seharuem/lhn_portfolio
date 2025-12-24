@@ -1,18 +1,24 @@
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { useMediaQuery } from 'react-responsive';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function Wheel() {
+	const media = useMediaQuery({ minWidth: 896 });
+	const mobile = useMediaQuery({ minWidth: 768 });
+
 	useEffect(() => {
 		let isScrolling = false;
 
 		function handleWheel(event) {
+			if (!mobile) return;
+
 			const y = window.scrollY;
 			const vh = window.innerHeight;
 
-			if (y < vh) {
+			if (media && y < vh) {
 				event.preventDefault();
 				window.scrollTo({ top: 0 });
 				return;
@@ -41,5 +47,5 @@ export default function Wheel() {
 		window.addEventListener('wheel', handleWheel, { passive: false });
 
 		return () => window.removeEventListener('wheel', handleWheel);
-	}, []);
+	}, [media, mobile]);
 }

@@ -1,5 +1,5 @@
 import { button } from 'framer-motion/client';
-import { Text, Name, Box, Circle, CircleLine } from './style';
+import { Text, Name, Box, Circle, CircleLine, Scroll } from './style/intro.style';
 
 const name = ['이', '하', '늘'];
 const box = ['lt', 'rt', 'lb', 'rb'];
@@ -16,9 +16,9 @@ export default function Shape() {
 			<Text id='hello' className='left-[100px] top-[100px]'>
 				안녕하세요.
 			</Text>
-			<Text id='textBox' className='z-30'>
+			<Text id='textBox' className='w-97 z-30'>
 				<div className='text1'>웹 퍼블리셔</div>
-				<div id='nameBox' className='flex gap-5 justify-center'>
+				<div className='namebox flex gap-5 justify-center'>
 					<Name as={button} onClick={click} className='absolute click z-10'>
 						click
 					</Name>
@@ -28,21 +28,20 @@ export default function Shape() {
 						</Name>
 					))}
 				</div>
-				<div className='text2 translate-y-2'>입니다.</div>
+				<div className='text2 translate-y-2'>입니다</div>
 			</Text>
 			{box.map((b) => (
 				<Box key={b} className={b}></Box>
 			))}
 			<CircleLine>
 				{num.map((n) => (
-					<>
-						<Circle key={`c${n}`} className={`circle c${n}`}>
-							<div className='cl' />
-						</Circle>
-					</>
+					<Circle key={`c${n}`} className={`circle c${n}`}>
+						<div className='cl' />
+					</Circle>
 				))}
-				<div className='line w-[2px] h-full bg-(--main) z-10' />
+				<div className='line w-0.5 h-full bg-(--main) z-10' />
 			</CircleLine>
+			<Scroll className='scroll'>scroll</Scroll>
 		</>
 	);
 }

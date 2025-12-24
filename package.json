@@ -14,10 +14,13 @@
 	"dependencies": {
 		"@gsap/react": "^2.1.2",
 		"@tailwindcss/vite": "^4.1.17",
+		"@tsparticles/react": "^3.0.0",
+		"@tsparticles/slim": "^3.9.1",
 		"framer-motion": "^12.23.25",
 		"gsap": "^3.14.2",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
+		"react-responsive": "^10.0.1",
 		"styled-components": "^6.1.19",
 		"tailwindcss": "^4.1.17",
 		"zustand": "^5.0.9"

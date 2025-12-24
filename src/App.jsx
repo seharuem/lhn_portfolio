@@ -2,25 +2,27 @@ import './App.css';
 import { useRef } from 'react';
 import Wheel from './Wheel';
 import { useIntro } from './Intro';
-import { aniTL } from './ani';
 import Shape from './Shape';
 import Page from './Page';
-import { Bg, Scroll, Skip } from './style';
+import { Bg, Skip } from './style/page.style';
+import ParticlesBg from './ParticlesBg';
 
 function App() {
 	Wheel();
 
 	const triggerRef = useRef(null);
-	const { skip, top } = useIntro(triggerRef, aniTL);
+	const { skip, top, setReady } = useIntro(triggerRef);
 
 	return (
 		<>
 			<Bg ref={triggerRef}>
 				<Shape className='test' />
-				<Skip onClick={skip}>SKIP</Skip>
-				<Scroll className='scroll'>scroll</Scroll>
+				<Skip className='skip' onClick={skip}>
+					SKIP
+				</Skip>
 				<Page top={top} />
 			</Bg>
+			<ParticlesBg onReady={setReady} />
 		</>
 	);
 }

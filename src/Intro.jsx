@@ -24,7 +24,7 @@ export const useIntro = (trigger) => {
 		});
 	};
 
-	const createScrollTrigger = () => {
+	const createTrigger = () => {
 		if (mmRef.current) mmRef.current.revert();
 		mmRef.current = gsap.matchMedia();
 		let mm = mmRef.current;
@@ -36,29 +36,25 @@ export const useIntro = (trigger) => {
 	};
 
 	useEffect(() => {
-		const checkReady = () => {
-			if (readyRef.current) {
-				createScrollTrigger();
-			} else {
-				setTimeout(checkReady, 100);
+		const handle = () => {
+			if (readyRef.current && trigger.current) {
+				createTrigger();
 			}
+		};
+
+		const checkReady = () => {
+			handle();
+			if (!readyRef.current) setTimeout(checkReady, 100);
 		};
 		checkReady();
 
-		const handleResize = () => {
-			if (readyRef.current && mmRef.current) {
-				mmRef.current.revert();
-				createScrollTrigger();
-			}
-		};
-		window.addEventListener('resize', handleResize);
-
+		window.addEventListener('resize', handle);
 		return () => {
-			window.removeEventListener('resize', handleResize);
+			window.removeEventListener('resize', handle);
 			if (mmRef.current) mmRef.current.revert();
 			if (stRef.current) stRef.current.kill();
 		};
-	}, []);
+	}, [createTrigger, trigger]);
 
 	const scroll = (time, top) => {
 		stRef.current?.animation.progress(time);

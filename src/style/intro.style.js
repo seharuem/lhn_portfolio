@@ -40,11 +40,19 @@ export const Box = styled.div.attrs({
 		width: 5rem;
 		height: 5rem;
 	}
+	@media (max-width: 480px) {
+		width: 4rem;
+		height: 4rem;
+	}
 `;
 
 export const Text = styled.div.attrs({
 	className: 'flex flex-col gap-10 items-end absolute break-keep text-8xl whitespace-pre'
 })`
+	&#hello {
+		left: 6rem;
+		top: 6rem;
+	}
 	@media (max-width: 1400px) {
 		font-size: 5rem;
 		&#textBox {
@@ -58,6 +66,17 @@ export const Text = styled.div.attrs({
 			width: max-content;
 			height: calc(var(--spacing) * 70);
 			writing-mode: vertical-rl;
+		}
+	}
+	@media (max-width: 480px) {
+		font-size: 3rem;
+		&#textBox {
+			gap: 1rem;
+			height: calc(var(--spacing) * 58);
+		}
+		&#hello {
+			left: 5rem;
+			top: 5rem;
 		}
 	}
 `;
@@ -86,6 +105,9 @@ export const Name = styled(Box).attrs({
 	}
 	@media (max-width: 1152px) {
 		padding-top: 0.4rem;
+	}
+	@media (max-width: 480px) {
+		padding-top: 0;
 	}
 `;
 
@@ -151,5 +173,11 @@ export const Scroll = styled.div.attrs({
 	@media (max-width: 1152px) {
 		left: 6rem;
 		bottom: 5rem;
+	}
+	@media (max-width: 480px) {
+		font-size: 12px;
+		bottom: 50%;
+		left: 2rem;
+		translate: 0 50%;
 	}
 `;

@@ -17,7 +17,7 @@ export const aniTL = () => {
 		.fromTo(
 			'#textBox',
 			{ right: '50%', bottom: '50%', xPercent: 50, yPercent: 50 },
-			{ right: '100px', bottom: '100px', xPercent: 0, yPercent: 0 },
+			{ right: '6rem', bottom: '6rem', xPercent: 0, yPercent: 0 },
 			'<'
 		)
 		.from('#hello', { clipPath: 'inset(0 100% 0 0)' })
@@ -57,7 +57,7 @@ export const tl1152 = () => {
 		.fromTo(
 			'#textBox',
 			{ right: '50%', bottom: '50%', xPercent: 50, yPercent: 50 },
-			{ right: '100px', bottom: '100px', xPercent: 0, yPercent: 0 },
+			{ right: '6rem', bottom: '6rem', xPercent: 0, yPercent: 0 },
 			'<'
 		)
 		.from('#hello', { clipPath: 'inset(0 100% 0 0)' })
@@ -85,23 +85,8 @@ export const tl768 = () => {
 
 	tl.set(['.click', '.line', '.circle'], { visibility: 'hidden' })
 		.set('.scroll', { opacity: 1, yPercent: 0 })
-		.from('#name1', { yPercent: 100, y: '1.25rem' })
-		.from('#name3', { yPercent: -100, y: '-1.25rem' }, '<')
-		.to('.name', { boxShadow: '0 0 5px var(--main)' }, '<')
-		.from('.lt', { xPercent: 100, yPercent: 100, opacity: 0 })
-		.from('.rt', { xPercent: -100, yPercent: 100, opacity: 0 }, '<')
-		.from('.lb', { xPercent: 100, yPercent: -100, opacity: 0 }, '<')
-		.from('.rb', { xPercent: -100, yPercent: -100, opacity: 0 }, '<')
-		.fromTo(
-			'#textBox',
-			{ right: '50%', bottom: '50%', xPercent: 50, yPercent: 50 },
-			{ right: '100px', bottom: '100px', xPercent: 0, yPercent: 0 },
-			'<'
-		)
-		.from('#hello', { clipPath: 'inset(0 100% 0 0)' })
-		.from('.text1', { clipPath: 'inset(100% 0 0)' }, '<')
-		.from('.text2', { clipPath: 'inset(0 0 100%)' }, '<')
-		.to('.name', { color: 'var(--main)' })
+		.set('.name', { boxShadow: '0 0 5px var(--main)', color: 'var(--main)' })
+		.set('#textBox', { right: '4rem', bottom: '4rem', xPercent: 0, yPercent: 0 })
 		.to(['#hello', '#textBox', '.box', '.scroll'], { opacity: 0 })
 		.from('.page', { clipPath: 'inset(100% 0)' }, '<')
 		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<');

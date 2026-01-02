@@ -11,7 +11,7 @@ export const useIntro = (trigger) => {
 	const mmRef = useRef(null);
 
 	const createSt = (ani, end = '1000%') => {
-		if (stRef.current) stRef.current.kill();
+		ScrollTrigger.getAll().forEach((st) => st.kill());
 
 		stRef.current = ScrollTrigger.create({
 			trigger: trigger.current,

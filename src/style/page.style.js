@@ -26,6 +26,14 @@ export const Skip = styled.button.attrs({
 	&:hover::before {
 		animation: ${skip} 0.3s ease-out alternate infinite;
 	}
+	@media (max-width: 480px) {
+		top: 4rem;
+		right: 4rem;
+		font-size: 16px;
+		&::before {
+			height: 24px;
+		}
+	}
 `;
 
 export const Top = styled.button.attrs({

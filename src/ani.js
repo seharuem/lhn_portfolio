@@ -4,6 +4,7 @@ export const aniTL = () => {
 	const tl = gsap.timeline({ defaults: { duration: 0.2 } });
 
 	tl.set(['.click', '.line', '.circle'], { visibility: 'visible' })
+		.set('.name', { color: 'transparent' })
 		.to('.click', { opacity: 0 })
 		.from('#name1', { xPercent: 100, x: '1.25rem' }, '<')
 		.from('#name3', { xPercent: -100, x: '-1.25rem' }, '<')
@@ -44,6 +45,7 @@ export const tl1152 = () => {
 	const tl = gsap.timeline({ defaults: { duration: 0.2 } });
 
 	tl.set(['.click', '.line', '.circle'], { visibility: 'visible' })
+		.set('.name', { color: 'transparent' })
 		.to('.click', { opacity: 0 })
 		.from('#name1', { yPercent: 100, y: '1.25rem' }, '<')
 		.from('#name3', { yPercent: -100, y: '-1.25rem' }, '<')

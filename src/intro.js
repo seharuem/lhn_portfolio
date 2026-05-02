@@ -22,6 +22,8 @@ export const useIntro = (trigger) => {
 			animation: ani(),
 			markers: true
 		});
+
+		gsap.to(trigger.current, { opacity: 1 });
 	};
 
 	const createTrigger = () => {
@@ -51,8 +53,8 @@ export const useIntro = (trigger) => {
 		window.addEventListener('resize', handle);
 		return () => {
 			window.removeEventListener('resize', handle);
-			if (mmRef.current) mmRef.current.revert();
-			if (stRef.current) stRef.current.kill();
+			mmRef.current?.revert();
+			stRef.current?.kill();
 		};
 	}, [createTrigger, trigger]);
 

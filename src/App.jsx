@@ -1,7 +1,7 @@
 import './App.css';
 import { useRef } from 'react';
 import Wheel from './Wheel';
-import { useIntro } from './Intro';
+import { useIntro } from './intro';
 import Shape from './Shape';
 import Page from './Page';
 import { Bg, Skip } from './style/page.style';
@@ -15,7 +15,7 @@ function App() {
 
 	return (
 		<>
-			<Bg ref={triggerRef}>
+			<Bg ref={triggerRef} className='opacity-0'>
 				<Shape className='test' />
 				<Skip className='skip' onClick={skip}>
 					SKIP

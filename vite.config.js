@@ -33,6 +33,5 @@ export default defineConfig({
 	},
 	optimizeDeps: {
 		include: ['gsap']
-	},
-	base: '/lhn_portfolio/'
+	}
 });

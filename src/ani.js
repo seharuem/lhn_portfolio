@@ -26,6 +26,7 @@ export const aniTL = () => {
 		.from('.text2', { clipPath: 'inset(0 0 100%)' }, '<')
 		.to('.name', { color: 'var(--main)' })
 		.from('.circle', { opacity: 0 }, '<')
+		.set('.page', { borderColor: 'var(--main)' }, '<')
 		.from('.page', { clipPath: 'inset(50% 0)' })
 		.to('.scroll', { opacity: 0, yPercent: 50 }, '<')
 		.to('.c1', { top: 0, yPercent: 0 }, '<')
@@ -34,10 +35,12 @@ export const aniTL = () => {
 		.to('.c2', { bottom: '50%', yPercent: 50 }, '<')
 		.to('.cl', { rotate: 90 })
 		.to('.circle', { background: 'var(--mainGD)' })
-		.to(['#hello', '#textBox', '.circleLine', '.box'], { opacity: 0 })
+		.to(['#hello', '#textBox', '.box'], { opacity: 0 })
 		.from('.page', { width: 0, duration: 0.4 }, '<')
+		.to('.circleLine', { width: '100%', duration: 0.4 }, '<')
 		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<0.2')
-		.to('.page', { borderColor: 'transparent', duration: 0.1 }, '<0.1');
+		.to('.page', { borderColor: 'transparent', duration: 0.1 }, '<0.1')
+		.to('.circle', { opacity: 0, duration: 0.1 }, '<');
 
 	return tl;
 };
@@ -68,6 +71,7 @@ export const tl1152 = () => {
 		.from('.text2', { clipPath: 'inset(0 0 100%)' }, '<')
 		.to('.name', { color: 'var(--main)' })
 		.from('.circle', { opacity: 0 }, '<')
+		.set('.page', { borderColor: 'var(--main)' }, '<')
 		.from('.page', { clipPath: 'inset(50% 0)' })
 		.to('.scroll', { opacity: 0, yPercent: 50 }, '<')
 		.to('.c1', { top: 0, yPercent: 0 }, '<')
@@ -76,9 +80,12 @@ export const tl1152 = () => {
 		.to('.c2', { bottom: '50%', yPercent: 50 }, '<')
 		.to('.cl', { rotate: 90 })
 		.to('.circle', { background: 'var(--mainGD)' })
-		.to(['#hello', '#textBox', '.circleLine', '.box'], { opacity: 0, duration: 0.4 })
+		.to(['#hello', '#textBox', '.box'], { opacity: 0 })
 		.from('.page', { width: 0, duration: 0.4 }, '<')
-		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<0.2');
+		.to('.circleLine', { width: '100%', duration: 0.4 }, '<')
+		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<0.2')
+		.to('.page', { borderColor: 'transparent', duration: 0.1 }, '<0.1')
+		.to('.circle', { opacity: 0, duration: 0.1 }, '<');
 
 	return tl;
 };
@@ -91,6 +98,7 @@ export const tl768 = () => {
 		.set('.name', { boxShadow: '0 0 5px var(--main)', color: 'var(--main)' })
 		.set('#textBox', { right: '4rem', bottom: '4rem', xPercent: 0, yPercent: 0 })
 		.to(['#hello', '#textBox', '.box', '.scroll'], { opacity: 0 })
+		.set('.page', { borderColor: 'transparent' }, '<')
 		.from('.page', { clipPath: 'inset(100% 0)' }, '<')
 		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<');
 

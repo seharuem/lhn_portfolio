@@ -106,7 +106,7 @@ export const Name = styled(Box).attrs({
 `;
 
 export const CircleLine = styled.div.attrs({
-	className: 'circleLine absolute inset-0 flex justify-center items-center'
+	className: 'circleLine absolute w-0 left-1/2 -translate-x-1/2 inset-y-0 flex justify-center items-center'
 })`
 	.line {
 		box-shadow: 0 0 4px var(--main);
@@ -115,7 +115,7 @@ export const CircleLine = styled.div.attrs({
 
 export const Circle = styled.div.attrs({
 	className:
-		'size-50 rounded-full border-2 border-solid border-(--main) absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center'
+		'size-50 rounded-full border-2 border-solid border-(--main) absolute top-1/2 flex items-center justify-center'
 })`
 	&::before {
 		content: '';
@@ -135,9 +135,13 @@ export const Circle = styled.div.attrs({
 	}
 	&.c1 {
 		clip-path: inset(0 50% 0 0);
+		right: 100%;
+		translate: 50% -50%;
 	}
 	&.c2 {
 		clip-path: inset(0 0 0 50%);
+		translate: -50% -50%;
+		left: 100%;
 	}
 `;
 

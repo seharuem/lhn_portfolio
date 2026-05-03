@@ -49,7 +49,7 @@ export const Top = styled.button.attrs({
 `;
 
 export const Card = styled.div.attrs({
-	className: 'w-80 h-100 relative'
+	className: 'w-60 h-60 relative'
 })`
 	background: var(--main);
 	clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);

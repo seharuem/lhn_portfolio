@@ -16,6 +16,7 @@ export default defineConfig({
 			gzipSize: true
 		})
 	],
+	base: '/lhn_portfolio/',
 	build: {
 		rollupOptions: {
 			plugins: visualizer(),

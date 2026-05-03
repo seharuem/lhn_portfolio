@@ -39,7 +39,6 @@ export default function Shape() {
 						<div className='cl' />
 					</Circle>
 				))}
-				<div className='line w-0.5 h-full bg-(--main) z-10' />
 			</CircleLine>
 			<Scroll className='scroll'>scroll</Scroll>
 		</>

@@ -26,7 +26,7 @@ export const aniTL = () => {
 		.from('.text2', { clipPath: 'inset(0 0 100%)' }, '<')
 		.to('.name', { color: 'var(--main)' })
 		.from('.circle', { opacity: 0 }, '<')
-		.from('.line', { clipPath: 'inset(50% 0)' })
+		.from('.page', { clipPath: 'inset(50% 0)' })
 		.to('.scroll', { opacity: 0, yPercent: 50 }, '<')
 		.to('.c1', { top: 0, yPercent: 0 }, '<')
 		.to('.c2', { top: 'initial', bottom: 0, yPercent: 0 }, '<')
@@ -34,9 +34,10 @@ export const aniTL = () => {
 		.to('.c2', { bottom: '50%', yPercent: 50 }, '<')
 		.to('.cl', { rotate: 90 })
 		.to('.circle', { background: 'var(--mainGD)' })
-		.to(['#hello', '#textBox', '.circleLine', '.box'], { opacity: 0, duration: 0.4 })
-		.from('.page', { clipPath: 'inset(0 100%)', duration: 0.4 }, '<')
-		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<0.2');
+		.to(['#hello', '#textBox', '.circleLine', '.box'], { opacity: 0 })
+		.from('.page', { width: 0, duration: 0.4 }, '<')
+		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<0.2')
+		.to('.page', { borderColor: 'transparent', duration: 0.1 }, '<0.1');
 
 	return tl;
 };
@@ -67,7 +68,7 @@ export const tl1152 = () => {
 		.from('.text2', { clipPath: 'inset(0 0 100%)' }, '<')
 		.to('.name', { color: 'var(--main)' })
 		.from('.circle', { opacity: 0 }, '<')
-		.from('.line', { clipPath: 'inset(50% 0)' })
+		.from('.page', { clipPath: 'inset(50% 0)' })
 		.to('.scroll', { opacity: 0, yPercent: 50 }, '<')
 		.to('.c1', { top: 0, yPercent: 0 }, '<')
 		.to('.c2', { top: 'initial', bottom: 0, yPercent: 0 }, '<')
@@ -76,7 +77,7 @@ export const tl1152 = () => {
 		.to('.cl', { rotate: 90 })
 		.to('.circle', { background: 'var(--mainGD)' })
 		.to(['#hello', '#textBox', '.circleLine', '.box'], { opacity: 0, duration: 0.4 })
-		.from('.page', { clipPath: 'inset(0 100%)', duration: 0.4 }, '<')
+		.from('.page', { width: 0, duration: 0.4 }, '<')
 		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<0.2');
 
 	return tl;

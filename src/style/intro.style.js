@@ -86,7 +86,7 @@ const shadow = keyframes`
 `;
 
 export const Name = styled(Box).attrs({
-	className: 'border-1 flex items-center justify-center pt-3'
+	className: 'border-1 flex items-center justify-center '
 })`
 	&.name {
 		color: transparent;
@@ -103,16 +103,10 @@ export const Name = styled(Box).attrs({
 	&.click:hover ~ &#name2 {
 		rotate: 45deg;
 	}
-	@media (max-width: 1152px) {
-		padding-top: 0.4rem;
-	}
-	@media (max-width: 480px) {
-		padding-top: 0;
-	}
 `;
 
 export const CircleLine = styled.div.attrs({
-	className: 'circleLine absolute inset-0 flex justify-center'
+	className: 'circleLine absolute inset-0 flex justify-center items-center'
 })`
 	.line {
 		box-shadow: 0 0 4px var(--main);

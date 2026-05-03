@@ -20,7 +20,7 @@ export const Skip = styled.button.attrs({
 		content: '';
 		height: 32px;
 		aspect-ratio: 1;
-		background: url('../skip.svg') center / contain no-repeat;
+		background: url('./skip.svg') center / contain no-repeat;
 		translate: 0 -2px;
 	}
 	&:hover::before {

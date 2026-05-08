@@ -97,9 +97,9 @@ export const tl768 = () => {
 		.set('.scroll', { opacity: 1, yPercent: 0 })
 		.set('.name', { boxShadow: '0 0 5px var(--main)', color: 'var(--main)' })
 		.set('#textBox', { right: '4rem', bottom: '4rem', xPercent: 0, yPercent: 0 })
-		.to(['#hello', '#textBox', '.box', '.scroll'], { opacity: 0 })
+		.to(['#hello', '#textBox', '.box', '.scroll'], { opacity: 0, clipPath: 'inset(0 0 0 100%)' })
 		.set('.page', { borderColor: 'transparent' }, '<')
-		.from('.page', { clipPath: 'inset(100% 0)' }, '<')
+		.from('.page', { clipPath: 'inset(0 100% 0 0)' }, '<')
 		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<');
 
 	return tl;

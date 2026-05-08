@@ -41,23 +41,19 @@ export const Top = styled.button.attrs({
 	className: 'absolute z-30 bottom-20 right-20 size-10 rounded-full bg-(--main) text-(--bg) font-extrabold pt-1 pl-0.5'
 })`
 	border: 2px solid var(--main);
-	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+	transition:
+		background-color 0.2s ease-out,
+		color 0.2s ease-out;
 	&:hover {
 		background-color: var(--bg);
 		color: var(--main);
 	}
 `;
 
+export const Title = styled.h2.attrs({
+	className: 'w-50 text-start text-2xl font-bold text-(--main)'
+})``;
+
 export const Card = styled.div.attrs({
-	className: 'w-60 h-60 relative'
-})`
-	background: var(--main);
-	clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-	&::before {
-		content: '';
-		position: absolute;
-		inset: 2px;
-		background: var(--bg);
-		clip-path: inherit;
-	}
-`;
+	className: 'w-full h-80 border-2 border-(--main)'
+})``;

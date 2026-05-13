@@ -47,7 +47,7 @@ export const Box = styled.div.attrs({
 `;
 
 export const Text = styled.div.attrs({
-	className: 'flex flex-col gap-10 items-end absolute break-keep text-8xl whitespace-pre'
+	className: 'flex flex-col gap-10 items-end absolute z-50 break-keep text-8xl whitespace-pre'
 })`
 	&#hello {
 		left: 6rem;
@@ -177,5 +177,19 @@ export const Scroll = styled.div.attrs({
 		bottom: 50%;
 		left: 2rem;
 		translate: 0 50%;
+	}
+`;
+
+export const Top = styled.button.attrs({
+	type: 'button',
+	className: 'top fixed z-50 bottom-10 right-10 size-10 rounded-full bg-(--main) text-(--bg) font-extrabold'
+})`
+	border: 2px solid var(--main);
+	transition:
+		background-color 0.2s ease-out,
+		color 0.2s ease-out;
+	&:hover {
+		background-color: var(--bg);
+		color: var(--main);
 	}
 `;

@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
 export const Bg = styled.div.attrs({
-	className: 'w-full h-screen flex flex-col items-center justify-center relative overflow-hidden'
+	className: 'w-full h-screen flex flex-col items-center justify-center relative'
 })`
 	@media (max-width: 768px) {
 		height: 100dvh;
@@ -36,24 +36,14 @@ export const Skip = styled.button.attrs({
 	}
 `;
 
-export const Top = styled.button.attrs({
-	type: 'button',
-	className: 'absolute z-30 bottom-20 right-20 size-10 rounded-full bg-(--main) text-(--bg) font-extrabold pt-1 pl-0.5'
-})`
-	border: 2px solid var(--main);
-	transition:
-		background-color 0.2s ease-out,
-		color 0.2s ease-out;
-	&:hover {
-		background-color: var(--bg);
-		color: var(--main);
-	}
-`;
-
 export const Title = styled.h2.attrs({
 	className: 'w-50 text-start text-2xl font-bold text-(--main)'
 })``;
 
 export const Card = styled.div.attrs({
 	className: 'w-full h-80 border-2 border-(--main)'
+})``;
+
+export const Category = styled.h3.attrs({
+	className: 'border text-(--main) rounded-full w-max px-4'
 })``;

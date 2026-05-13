@@ -13,9 +13,7 @@ const click = () => {
 export default function Shape() {
 	return (
 		<>
-			<Text id='hello'>
-				안녕하세요
-			</Text>
+			<Text id='hello'>안녕하세요</Text>
 			<Text id='textBox' className='w-97 z-30'>
 				<div className='text1'>웹 퍼블리셔</div>
 				<div className='namebox flex gap-5 justify-center'>
@@ -40,6 +38,7 @@ export default function Shape() {
 					</Circle>
 				))}
 			</CircleLine>
+			<div className='door absolute h-full border-x border-(--main)' />
 			<Scroll className='scroll'>scroll</Scroll>
 		</>
 	);

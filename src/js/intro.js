@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { aniTL, tl1152, tl768 } from './ani';
+import { aniTL, tl768 } from './ani';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +11,7 @@ export const useIntro = (trigger) => {
 	const mmRef = useRef(null);
 
 	const createSt = (ani, end = '1000%') => {
-		ScrollTrigger.getAll().forEach((st) => st.kill());
+		stRef.current?.kill();
 
 		stRef.current = ScrollTrigger.create({
 			trigger: trigger.current,
@@ -19,9 +19,11 @@ export const useIntro = (trigger) => {
 			scrub: 1,
 			pin: true,
 			invalidateOnRefresh: true,
-			animation: ani(),
+			animation: ani()
 			// markers: true
 		});
+
+		window.scrollTo(0, 0);
 
 		gsap.to(trigger.current, { opacity: 1 });
 	};
@@ -31,10 +33,10 @@ export const useIntro = (trigger) => {
 		mmRef.current = gsap.matchMedia();
 		let mm = mmRef.current;
 
-		mm.add('(min-width: 1152px)', () => createSt(aniTL));
-		mm.add('(min-width: 896px) and (max-width: 1151px)', () => createSt(tl1152));
-		mm.add('(min-width: 768px) and (max-width: 895px)', () => createSt(tl768, '500%'));
-		mm.add('(max-width: 767px)', () => createSt(tl768, '50%'));
+		mm.add('(min-width: 1152px)', () => createSt(() => aniTL(true)));
+		mm.add('(min-width: 896px) and (max-width: 1151px)', () => createSt(() => aniTL(false)));
+		mm.add('(min-width: 768px) and (max-width: 895px)', () => createSt(tl768, '100%'));
+		mm.add('(max-width: 767px)', () => createSt(tl768, '10%'));
 	};
 
 	useEffect(() => {

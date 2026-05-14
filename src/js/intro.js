@@ -10,7 +10,7 @@ export const useIntro = (trigger) => {
 	const readyRef = useRef(false);
 	const mmRef = useRef(null);
 
-	const createSt = (ani, end = '1000%') => {
+	const createSt = (ani, end = '900%') => {
 		stRef.current?.kill();
 
 		stRef.current = ScrollTrigger.create({
@@ -19,6 +19,7 @@ export const useIntro = (trigger) => {
 			scrub: 1,
 			pin: true,
 			invalidateOnRefresh: true,
+			fastScrollEnd: true,
 			animation: ani()
 			// markers: true
 		});
@@ -65,7 +66,7 @@ export const useIntro = (trigger) => {
 		window.scrollTo({ top: top });
 	};
 
-	const skip = () => scroll(1, window.innerHeight * 10);
+	const skip = () => scroll(1, window.innerHeight * 9);
 	const top = () => scroll(0, 0);
 
 	const setReady = () => {

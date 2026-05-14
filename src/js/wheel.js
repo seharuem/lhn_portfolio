@@ -17,52 +17,55 @@ export default function wheel(ref) {
 
 			const y = window.scrollY;
 			const vh = window.innerHeight;
+			const vw = window.innerWidth;
 
-			if (ref.current) {
-				const triggerTop = ref.current.offsetTop;
-				const vw = window.innerWidth;
-				let endOffset = 0;
+			let offsetMultiplier = 9;
+			if (vw >= 768 && vw <= 895) offsetMultiplier = 5;
+			if (vw < 768) offsetMultiplier = 0.1;
 
-				if (vw >= 1152) {
-					endOffset = vh * 10;
-				} else if (vw >= 896 && vw <= 1151) {
-					endOffset = vh * 10;
-				} else if (vw >= 768 && vw <= 895) {
-					endOffset = vh * 1;
-				} else {
-					endOffset = vh * 0.1;
-				}
+			const aniEnd = vh * offsetMultiplier;
 
-				const aniEnd = triggerTop + endOffset;
-				if (y >= aniEnd) {
-					return;
-				}
-			}
-
-			if (media && y < vh) {
+			if (y <= aniEnd) {
+				const dir = event.deltaY > 0 ? 1 : -1;
+				if ((y >= aniEnd && dir === 1) || (y <= 0 && dir === -1)) return;
 				event.preventDefault();
-				window.scrollTo({ top: 0 });
+
+				if (isScrolling) return;
+				isScrolling = true;
+
+				const currentIndex = Math.round(y / vh);
+				let targetSection = currentIndex + dir;
+				let scrollAmount = targetSection * vh;
+
+				if (scrollAmount < 0) scrollAmount = 0;
+				if (scrollAmount > aniEnd) scrollAmount = aniEnd;
+
+				gsap.to(window, {
+					scrollTo: scrollAmount,
+					duration: 0.3,
+					ease: 'power2.out',
+					onComplete: () => {
+						setTimeout(() => {
+							isScrolling = false;
+						}, 150);
+					}
+				});
 				return;
 			}
 
-			event.preventDefault();
-			if (isScrolling) return;
+			if (event.deltaY < 0 && y >= aniEnd - 10 && y < aniEnd + 100) {
+				event.preventDefault();
+				if (isScrolling) return;
+				isScrolling = true;
 
-			const dir = event.deltaY > 0 ? 1 : -1;
-			let scrollAmount = window.scrollY + window.innerHeight * dir;
-
-			isScrolling = true;
-
-			gsap.to(window, {
-				scrollTo: scrollAmount,
-				duration: 0.2,
-				ease: 'power2.out',
-				onComplete: () => {
-					setTimeout(() => {
+				gsap.to(window, {
+					scrollTo: aniEnd,
+					duration: 0.2,
+					onComplete: () => {
 						isScrolling = false;
-					}, 100);
-				}
-			});
+					}
+				});
+			}
 		}
 
 		window.addEventListener('wheel', handleWheel, { passive: false });

@@ -43,13 +43,15 @@ export const aniTL = (isMax = true) => {
 		.to('.lb', { clipPath: 'inset(100% 100% 0 0)' }, '<')
 		.to('.rb', { clipPath: 'inset(100% 0 0 100%)' }, '<')
 		.to(['#hello', '#textBox'], { opacity: 0 }, '<')
+		.to('#hello', { clipPath: 'inset(0 100% 0 0)' }, '<')
+		.to('#textBox > div', { clipPath: 'inset(0 0 0 100%)' }, '<')
 		.to('.door', { width: '100%' }, '<')
 		.to('.circleLine', { width: '100%' }, '<')
 		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<')
 		.to('.door', { borderColor: 'transparent', duration: 0.1 }, '<0.1')
 		.to('.circle', { opacity: 0, duration: 0.1 }, '<')
 		.from('.top', { scale: 0, duration: 0.1 }, '<')
-		.from('.page', { opacity: 0, scale: 0, duration: 0.1 }, '<');
+		.fromTo('.page', { scale: 0 }, { opacity: 1, scale: 1, duration: 0.1 }, '<');
 
 	return tl;
 };

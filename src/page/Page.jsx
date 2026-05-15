@@ -4,7 +4,7 @@ import Projects from './Projects';
 
 export default function Page() {
 	return (
-		<div className='page p-20 flex flex-col gap-40 -mt-[100vh]'>
+		<div className='page p-20 flex flex-col gap-40 -mt-[100vh] opacity-0'>
 			<div className='flex gap-20 w-full'>
 				<Title>SKILLS</Title>
 				<div className='border border-(--main) flex-1 min-w-0'>

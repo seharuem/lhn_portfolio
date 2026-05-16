@@ -79,6 +79,12 @@ export const Text = styled.div.attrs({
 			top: 5rem;
 		}
 	}
+	@media (max-width: 895px) {
+		&#textBox {
+			right: 4rem;
+			bottom: 4rem;
+		}
+	}
 `;
 
 const shadow = keyframes`
@@ -86,22 +92,25 @@ const shadow = keyframes`
 `;
 
 export const Name = styled(Box).attrs({
-	className: 'border-1 flex items-center justify-center '
+	className: 'border-1 flex items-center justify-center text-(--main)'
 })`
 	&.name {
-		color: transparent;
 		cursor: default;
 		transition: rotate 0.2s ease-out;
 	}
 	&.click {
 		padding: 0;
 		font-size: 1.5rem;
-		color: var(--main);
 		animation: ${shadow} 0.6s alternate infinite;
 		writing-mode: horizontal-tb;
 	}
 	&.click:hover ~ &#name2 {
 		rotate: 45deg;
+	}
+	@media (max-width: 895px) {
+		&.click {
+			visibility: hidden;
+		}
 	}
 `;
 
@@ -110,6 +119,12 @@ export const CircleLine = styled.div.attrs({
 })`
 	.line {
 		box-shadow: 0 0 4px var(--main);
+	}
+	@media (max-width: 895px) {
+		visibility: hidden;
+		& + .door {
+			visibility: hidden;
+		}
 	}
 `;
 
@@ -182,7 +197,8 @@ export const Scroll = styled.div.attrs({
 
 export const Top = styled.button.attrs({
 	type: 'button',
-	className: 'top fixed z-50 bottom-10 right-10 size-10 rounded-full bg-(--main) text-(--bg) font-extrabold'
+	className:
+		'top fixed z-50 bottom-10 right-10 size-10 max-lg:right-6 max-lg:bottom-6 rounded-full bg-(--main) text-(--bg) font-extrabold'
 })`
 	border: 2px solid var(--main);
 	transition:

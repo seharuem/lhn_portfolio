@@ -1,20 +1,18 @@
-import { Card, Title } from '../style/page.style';
+import { Card, Category, PageBg } from '../style/page.style';
 import Skills from './Skills';
 import Projects from './Projects';
 
 export default function Page() {
 	return (
-		<div className='page p-20 flex flex-col gap-40 -mt-[100vh] opacity-0'>
-			<div className='flex gap-20 w-full'>
-				<Title>SKILLS</Title>
-				<div className='border border-(--main) flex-1 min-w-0'>
-					<Skills />
-				</div>
+		<PageBg>
+			<div className='flex justify-between w-full max-lg:flex-col gap-8'>
+				<Category>SKILLS</Category>
+				<Skills />
 			</div>
-			<div className='flex gap-20 w-full'>
-				<Title>PROJECTS</Title>
+			<div className='flex justify-between w-full max-lg:flex-col gap-8'>
+				<Category>PROJECTS</Category>
 				<Projects />
 			</div>
-		</div>
+		</PageBg>
 	);
 }

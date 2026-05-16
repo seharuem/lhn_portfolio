@@ -33,7 +33,7 @@ export default function wheel(ref) {
 
 			const aniEnd = vh * multiplier;
 
-			if (y < vh && dir === 1) {
+			if (isDesktop && y < vh && dir === 1) {
 				event.preventDefault();
 				return;
 			}

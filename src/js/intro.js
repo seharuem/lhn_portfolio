@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { aniTL, tl768 } from './ani';
+import { aniTL } from './ani';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +21,6 @@ export const useIntro = (trigger) => {
 			invalidateOnRefresh: true,
 			fastScrollEnd: true,
 			animation: ani()
-			// markers: true
 		});
 
 		window.scrollTo(0, 0);
@@ -36,8 +35,6 @@ export const useIntro = (trigger) => {
 
 		mm.add('(min-width: 1152px)', () => createSt(() => aniTL(true)));
 		mm.add('(min-width: 896px) and (max-width: 1151px)', () => createSt(() => aniTL(false)));
-		mm.add('(min-width: 768px) and (max-width: 895px)', () => createSt(tl768, '100%'));
-		mm.add('(max-width: 767px)', () => createSt(tl768, '10%'));
 	};
 
 	useEffect(() => {

@@ -6,6 +6,18 @@ export const Bg = styled.div.attrs({
 	@media (max-width: 768px) {
 		height: 100dvh;
 	}
+	@media (max-width: 895px) {
+		opacity: 1;
+	}
+`;
+
+export const PageBg = styled.div.attrs({
+	className: 'page p-20 max-lg:p-10 flex flex-col gap-40 max-lg:gap-20 -mt-[100vh] opacity-0'
+})`
+	@media (max-width: 895px) {
+		opacity: 1 !important;
+		margin-top: 0;
+	}
 `;
 
 const skip = keyframes`
@@ -26,24 +38,19 @@ export const Skip = styled.button.attrs({
 	&:hover::before {
 		animation: ${skip} 0.3s ease-out alternate infinite;
 	}
-	@media (max-width: 480px) {
-		top: 4rem;
-		right: 4rem;
-		font-size: 16px;
-		&::before {
-			height: 24px;
-		}
+	@media (max-width: 895px) {
+		visibility: hidden;
 	}
 `;
 
-export const Title = styled.h2.attrs({
-	className: 'w-50 text-start text-2xl font-bold text-(--main)'
+export const Category = styled.h2.attrs({
+	className: 'w-40  text-start text-2xl font-bold text-(--main)'
 })``;
 
 export const Card = styled.div.attrs({
 	className: 'w-full h-80 border-2 border-(--main)'
 })``;
 
-export const Category = styled.h3.attrs({
-	className: 'border text-(--main) rounded-full w-max px-4'
+export const Title = styled.h3.attrs({
+	className: 'border text-(--main) px-4'
 })``;

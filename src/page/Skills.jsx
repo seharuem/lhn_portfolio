@@ -5,18 +5,18 @@ import G from '/gsap-white.svg';
 
 const skills = [
 	{
-		title: 'Markup & Styling',
+		title: 'Development',
 		list: [
 			{ name: 'html5', icon: 'html5-plain colored' },
 			{ name: 'css3', icon: 'css3-plain colored' },
-			{ name: 'styled components', icon: 'styledcomponents-plain colored' },
-			{ name: 'tailwindcss', icon: 'tailwindcss-original colored' }
+			{ name: 'javascript', icon: 'javascript-plain colored' }
 		]
 	},
 	{
-		title: 'Interactions',
+		title: 'Libraries',
 		list: [
-			{ name: 'javascript', icon: 'javascript-plain colored' },
+			{ name: 'tailwindcss', icon: 'tailwindcss-original colored' },
+			{ name: 'styled components', icon: 'styledcomponents-plain colored' },
 			{ name: 'zustand', icon: 'zustand-plain' }
 		]
 	},
@@ -34,10 +34,16 @@ export default function Skills() {
 	return (
 		<div className='flex-1 min-w-0 h-full flex flex-col gap-10'>
 			{skills.map((skill) => (
-				<div key={skill.title} className='flex flex-col gap-8 w-full'>
+				<div key={skill.title} className='flex flex-col gap-8 w-full font-(family-name:--font2)'>
 					<Title>{skill.title}</Title>
-					<ul className='grid grid-cols-[repeat(auto-fill,minmax(min(100%,80px),1fr))] gap-8 max-lg:text-sm max-lg:gap-5'>
-						{skill.title === 'Markup & Styling' && (
+					<ul className='grid grid-cols-[repeat(auto-fill,minmax(min(100%,100px),1fr))] gap-8 max-lg:text-sm max-lg:gap-5'>
+						{skill.list.map((s) => (
+							<li key={s.name} className='flex flex-col items-center gap-2 w-20'>
+								<i className={`devicon-${s.icon} text-2xl`} />
+								{s.name}
+							</li>
+						))}
+						{skill.title === 'Development' && (
 							<li className='flex flex-col gap-2 items-center'>
 								<div className='flex gap-4 w-max'>
 									<img className='h-6' src={V} alt='vite' />
@@ -46,13 +52,7 @@ export default function Skills() {
 								vite + react
 							</li>
 						)}
-						{skill.list.map((s) => (
-							<li key={s.name} className='flex flex-col items-center gap-2 w-20'>
-								<i className={`devicon-${s.icon} text-2xl`} />
-								{s.name}
-							</li>
-						))}
-						{skill.title === 'Interactions' && (
+						{skill.title === 'Libraries' && (
 							<li className='flex flex-col gap-2 items-center'>
 								<img className='h-6' src={G} alt='gsap' />
 								gsap

@@ -100,6 +100,7 @@ export const Name = styled(Box).attrs({
 	}
 	&.click {
 		padding: 0;
+		font-family: 'Montserrat';
 		font-size: 1.5rem;
 		animation: ${shadow} 0.6s alternate infinite;
 		writing-mode: horizontal-tb;

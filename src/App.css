@@ -3,13 +3,14 @@
 	max-width: 1600px;
 	margin: 0 auto;
 	text-align: center;
-	font-family: Pretendard;
+	font-family: 'Pretendard';
 }
 
 :root {
 	--bg: #020014;
 	--main: #1abcfe;
 	--mainGD: linear-gradient(var(--main), #1abcfe40, var(--main));
+	--font2: 'Montserrat';
 }
 
 html,

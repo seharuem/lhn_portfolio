@@ -52,5 +52,5 @@ export const Card = styled.div.attrs({
 })``;
 
 export const Title = styled.h3.attrs({
-	className: 'border text-(--main) px-4'
+	className: 'border text-(--main) px-4 font-medium'
 })``;

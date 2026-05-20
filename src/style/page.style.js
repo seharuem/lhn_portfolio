@@ -48,9 +48,38 @@ export const Category = styled.h2.attrs({
 })``;
 
 export const Card = styled.div.attrs({
-	className: 'w-full h-80 border-2 border-(--main)'
+	className: 'w-full h-80 border-2 border-(--main) relative'
 })``;
 
 export const Title = styled.h3.attrs({
 	className: 'border text-(--main) px-4 font-medium'
 })``;
+
+export const Grid = styled.ul.attrs({
+	className: 'grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-8 max-lg:text-sm max-lg:gap-5'
+})`
+	@media (max-width: 480px) {
+		grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+		font-size: 12px;
+	}
+`;
+
+export const Tag = styled.span.attrs({
+	className: 'border border-(--main) rounded-full px-2 text-sm'
+})``;
+
+export const Link = styled.a.attrs({
+	className: 'block size-8'
+})`
+	font-size: 0;
+	background: center / contain no-repeat;
+	&.home {
+		background-image: url('./src/assets/img/link.svg');
+	}
+	&.figma {
+		background-image: url('./src/assets/img/figma.svg');
+	}
+	&.github {
+		background-image: url('./src/assets/img/github.svg');
+	}
+`;

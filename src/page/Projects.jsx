@@ -1,5 +1,5 @@
 import { Card, Link, Tag } from '../style/page.style';
-import { projects } from './projects';
+import { projects } from './data';
 
 export default function Projects() {
 	return (

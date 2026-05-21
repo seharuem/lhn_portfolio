@@ -27,7 +27,7 @@ export const aniTL = (isMax = true) => {
 		.from('.text1', { clipPath: 'inset(100% 0 0)', opacity: 0 }, '<')
 		.from('.text2', { clipPath: 'inset(0 0 100%)', opacity: 0 }, '<')
 		.fromTo('.name', { color: 'transparent' }, { color: 'var(--main)' })
-		.from('.circle', { scale: 0.1, rotate: '360deg' }, '<')
+		.fromTo('.circle', { scale: 0.1 }, { scale: 1, rotate: '360deg' }, '<')
 		.from('.door', { clipPath: 'inset(50% 0)' })
 		.to('.scroll', { opacity: 0, yPercent: 50 }, '<')
 		.to('.c1', { top: 0, yPercent: 0 }, '<')

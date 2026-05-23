@@ -52,7 +52,7 @@ export const Card = styled.div.attrs({
 })``;
 
 export const Title = styled.h3.attrs({
-	className: 'border text-(--main) px-4 font-medium'
+	className: 'border text-(--main) px-4 font-medium w-max'
 })``;
 
 export const Grid = styled.ul.attrs({
@@ -65,7 +65,7 @@ export const Grid = styled.ul.attrs({
 `;
 
 export const Tag = styled.span.attrs({
-	className: 'border border-(--main) rounded-full px-2 text-sm'
+	className: 'border border-(--main) rounded-full px-2 text-sm backdrop-blur-xs'
 })``;
 
 export const Link = styled.a.attrs({

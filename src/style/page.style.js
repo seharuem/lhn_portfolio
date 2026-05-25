@@ -25,7 +25,7 @@ to {translate: -8px -2px}`;
 
 export const Skip = styled.button.attrs({
 	type: 'button',
-	className: 'absolute top-20 right-20 text-(--main) font-bold flex items-center'
+	className: 'skip absolute top-20 right-20 text-(--main) font-bold flex items-center'
 })`
 	font-size: 24px;
 	&::before {
@@ -69,10 +69,13 @@ export const Tag = styled.span.attrs({
 })``;
 
 export const Link = styled.a.attrs({
-	className: 'block size-8'
+	className: 'block size-10 rounded-full border-2 border-(--main)'
 })`
 	font-size: 0;
-	background: center / contain no-repeat;
+	background: color-mix(in oklab, var(--bg) 50%, transparent) center / 80% no-repeat;
+	&:hover {
+		background-color: color-mix(in oklab, var(--bg) 50%, var(--main));
+	}
 	&.home {
 		background-image: url('./src/assets/img/link.svg');
 	}

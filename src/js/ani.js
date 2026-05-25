@@ -48,7 +48,6 @@ export const aniTL = (isMax = true) => {
 		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<')
 		.to('.door', { borderColor: 'transparent', duration: 0.1 }, '<0.1')
 		.to('.circle', { opacity: 0, duration: 0.1 }, '<')
-		.from('.top', { scale: 0, duration: 0.1 }, '<')
 		.fromTo('.page', { scale: 0 }, { opacity: 1, scale: 1, duration: 0.1 }, '<');
 
 	return tl;

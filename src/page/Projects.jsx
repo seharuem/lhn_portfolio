@@ -23,7 +23,7 @@ export default function Projects() {
 							<Card key={d.title}>
 								<img src={d.img} className='absolute size-full object-cover' alt='' />
 								<div className='absolute inset-0 flex flex-col'>
-									<div className='flex flex-col gap-2 p-5 bg-black/70'>
+									<div className='flex flex-col gap-2 p-5 bg-(--bg)/70'>
 										<h3 className='text-2xl text-left'>{d.title}</h3>
 										<div className='flex gap-2 flex-wrap'>
 											{d.tag.map((t, i) => (
@@ -31,7 +31,7 @@ export default function Projects() {
 											))}
 										</div>
 									</div>
-									<div className='flex justify-end mt-auto p-2 bg-black/70'>
+									<div className='flex gap-1 justify-end mt-auto p-2'>
 										{d.link.map((l, i) => (
 											<Link key={i} target='_blank' rel='noopener noreferrer' href={l.href} className={l.name}>
 												{l.name}

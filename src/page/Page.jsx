@@ -13,6 +13,7 @@ export default function Page() {
 				<Category>PROJECTS</Category>
 				<Projects />
 			</div>
+			<footer className='text-sm text-(--main) opacity-50 font-semibold text-left'>© 2026 이하늘 포트폴리오</footer>
 		</PageBg>
 	);
 }

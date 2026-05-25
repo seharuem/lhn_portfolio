@@ -199,14 +199,18 @@ export const Scroll = styled.div.attrs({
 export const Top = styled.button.attrs({
 	type: 'button',
 	className:
-		'top fixed z-50 bottom-10 right-10 size-10 max-lg:right-6 max-lg:bottom-6 rounded-full bg-(--main) text-(--bg) font-extrabold'
+		'top fixed z-50 bottom-10 right-10 size-10 max-lg:right-6 max-lg:bottom-6 rounded-full bg-(--main) text-(--bg) font-extrabold scale-0'
 })`
 	border: 2px solid var(--main);
 	transition:
 		background-color 0.2s ease-out,
-		color 0.2s ease-out;
+		color 0.2s ease-out,
+		scale 0.2s ease-out;
 	&:hover {
 		background-color: var(--bg);
 		color: var(--main);
+	}
+	&.visible {
+		scale: 1;
 	}
 `;

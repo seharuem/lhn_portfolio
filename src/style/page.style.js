@@ -77,12 +77,12 @@ export const Link = styled.a.attrs({
 		background-color: color-mix(in oklab, var(--bg) 50%, var(--main));
 	}
 	&.home {
-		background-image: url('./src/assets/img/link.svg');
+		background-image: url(./link.svg);
 	}
 	&.figma {
-		background-image: url('./src/assets/img/figma.svg');
+		background-image: url(./figma.svg);
 	}
 	&.github {
-		background-image: url('./src/assets/img/github.svg');
+		background-image: url(./github.svg);
 	}
 `;

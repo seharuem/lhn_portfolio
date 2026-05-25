@@ -199,7 +199,7 @@ export const Scroll = styled.div.attrs({
 export const Top = styled.button.attrs({
 	type: 'button',
 	className:
-		'top fixed z-50 bottom-10 right-10 size-10 max-lg:right-6 max-lg:bottom-6 rounded-full bg-(--main) text-(--bg) font-extrabold scale-0'
+		'top fixed z-50 bottom-10 right-10 w-10 aspect-square max-lg:right-6 max-lg:bottom-6 rounded-full bg-(--main) text-(--bg) font-extrabold scale-0'
 })`
 	border: 2px solid var(--main);
 	transition:
@@ -212,5 +212,9 @@ export const Top = styled.button.attrs({
 	}
 	&.visible {
 		scale: 1;
+	}
+	@media (max-width: 480px) {
+		width: 2rem;
+		font-size: 0.8rem;
 	}
 `;

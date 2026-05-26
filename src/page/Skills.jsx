@@ -17,6 +17,7 @@ const skills = [
 		list: [
 			{ name: 'tailwindcss', icon: 'tailwindcss-original colored' },
 			{ name: 'styled components', icon: 'styledcomponents-plain colored' },
+			{ name: 'swiper', icon: 'swiper-original colored' },
 			{ name: 'zustand', icon: 'zustand-plain' }
 		]
 	},

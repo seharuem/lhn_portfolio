@@ -162,7 +162,7 @@
 	@apply absolute top-20 right-20 text-(--main) font-bold text-2xl h-8 flex items-center;
 	&::before {
 		@apply content-[''] h-full aspect-square;
-		background: url('./skip.svg') center / contain no-repeat;
+		background: url('../assets/img/skip.svg') center / contain no-repeat;
 	}
 	&:hover::before {
 		animation: skip 0.3s ease-out alternate infinite;

@@ -37,13 +37,13 @@
 		background-color: color-mix(in oklab, var(--bg) 50%, var(--main));
 	}
 	&.home {
-		background-image: url(./link.svg);
+		background-image: url(../assets/img/link.svg);
 	}
 	&.figma {
-		background-image: url(./figma.svg);
+		background-image: url(../assets/img/figma.svg);
 	}
 	&.github {
-		background-image: url(./github.svg);
+		background-image: url(../assets/img/github.svg);
 	}
 }
 

@@ -1,16 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Top } from './style/intro.style';
 
 export default function ScrollTop({ ref, onClick }) {
 	const [visible, setVisible] = useState(false);
 
 	useEffect(() => {
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				setVisible(!entry.isIntersecting);
-			},
-			{ threshold: 0, rootMargin: '0px 0px -500px 0px' }
-		);
+		const observer = new IntersectionObserver(([entry]) => {
+			setVisible(!entry.isIntersecting);
+		});
 
 		if (ref.current) {
 			observer.observe(ref.current);
@@ -20,8 +16,8 @@ export default function ScrollTop({ ref, onClick }) {
 	}, [ref]);
 
 	return (
-		<Top onClick={onClick} className={visible ? 'visible' : ''}>
+		<button type='button' onClick={onClick} className={`top ${visible ? 'visible' : ''}`}>
 			TOP
-		</Top>
+		</button>
 	);
 }

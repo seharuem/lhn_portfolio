@@ -1,0 +1,70 @@
+@reference '../index.css';
+
+.bg {
+	@apply w-full h-screen flex flex-col items-center justify-center relative opacity-0;
+	@media (max-width: 768px) {
+		@apply h-dvh;
+	}
+	@media (max-width: 895px) {
+		@apply opacity-100;
+	}
+}
+
+.page {
+	@apply p-20 max-lg:p-10 flex flex-col gap-40 max-lg:gap-20 -mt-[100vh] opacity-0;
+	@media (max-width: 895px) {
+		@apply opacity-100! mt-0;
+	}
+}
+
+.title {
+	@apply border text-(--main) px-4 font-medium w-max;
+}
+
+.gridBox {
+	@apply grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-8 max-lg:text-sm max-lg:gap-5;
+	@media (max-width: 480px) {
+		@apply text-xs;
+		grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+	}
+}
+
+.link {
+	@apply block size-10 rounded-full border-2 border-(--main) bg-(--bg)/50 bg-center bg-size-[80%] bg-no-repeat;
+	font-size: 0;
+
+	&:hover {
+		background-color: color-mix(in oklab, var(--bg) 50%, var(--main));
+	}
+	&.home {
+		background-image: url(./link.svg);
+	}
+	&.figma {
+		background-image: url(./figma.svg);
+	}
+	&.github {
+		background-image: url(./github.svg);
+	}
+}
+
+.top {
+	@apply fixed z-50 bottom-10 right-10 w-10 aspect-square max-lg:right-6 max-lg:bottom-6 rounded-full bg-(--main) text-(--bg) font-extrabold scale-0;
+
+	border: 2px solid var(--main);
+	transition:
+		background-color 0.2s ease-out,
+		color 0.2s ease-out,
+		scale 0.2s ease-out;
+	&:hover {
+		background-color: var(--bg);
+		color: var(--main);
+	}
+	&.visible {
+		scale: 1;
+	}
+
+	@media (max-width: 480px) {
+		width: 2rem;
+		font-size: 0.8rem;
+	}
+}

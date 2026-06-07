@@ -9,7 +9,7 @@ export const team = [
 	{
 		title: '랭킹동숲',
 		img: animal,
-		tag: ['토이 프로젝트', '반응형'],
+		tag: ['토이 프로젝트', '반응형', '로그인/회원가입', '게시판'],
 		link: [
 			{
 				name: 'home',
@@ -28,7 +28,7 @@ export const team = [
 	{
 		title: 'BMW MINI',
 		img: mini,
-		tag: ['리디자인', 'PC'],
+		tag: ['리디자인', 'PC', '애니메이션'],
 		link: [
 			{
 				name: 'home',
@@ -47,6 +47,20 @@ export const team = [
 ];
 
 export const solo = [
+	{
+		title: '이하늘 포트폴리오',
+		tag: ['포트폴리오', '반응형'],
+		link: [
+			{
+				name: 'home',
+				href: 'https://seharuem.github.io/lhn_portfolio/'
+			},
+			{
+				name: 'github',
+				href: 'https://github.com/seharuem/lhn_portfolio.git'
+			}
+		]
+	},
 	{
 		title: '에이닷',
 		img: adot,

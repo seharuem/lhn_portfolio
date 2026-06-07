@@ -4,9 +4,7 @@ import wheel from './js/wheel';
 import { useIntro } from './js/intro';
 import Shape from './Shape';
 import Page from './page/Page';
-import { Bg, Skip } from './style/page.style';
 import ParticlesBg from './ParticlesBg';
-import { Top } from './style/intro.style';
 import ScrollTop from './ScrollTop';
 
 function App() {
@@ -18,10 +16,12 @@ function App() {
 
 	return (
 		<>
-			<Bg ref={triggerRef} className='opacity-0'>
+			<div ref={triggerRef} className='bg'>
 				<Shape />
-				<Skip ref={scrollRef} onClick={skip}>SKIP</Skip>
-			</Bg>
+				<button type='button' className='skip' ref={scrollRef} onClick={skip}>
+					SKIP
+				</button>
+			</div>
 			<Page />
 			<ParticlesBg onReady={setReady} />
 			<ScrollTop ref={scrollRef} onClick={top} />

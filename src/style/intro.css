@@ -1,0 +1,173 @@
+@reference '../index.css';
+
+@keyframes shadow {
+	to {
+		text-shadow: var(--shadow8);
+	}
+}
+
+@keyframes tok {
+	to {
+		translate: -50% 150%;
+	}
+}
+
+@keyframes skip {
+	to {
+		translate: -8px 0;
+	}
+}
+
+.box {
+	@apply size-29 border-solid border-(--main);
+	scroll-behavior: smooth;
+	&:is(.lt, .rt, .lb, .rb) {
+		@apply absolute;
+	}
+
+	&.lt {
+		@apply top-10 left-10 border-t border-l;
+	}
+	&.rt {
+		@apply top-10 right-10 border-t border-r;
+	}
+	&.lb {
+		@apply bottom-10 left-10 border-b border-l;
+	}
+	&.rb {
+		@apply bottom-10 right-10 border-b border-r;
+	}
+
+	&:is(.name, .click) {
+		@apply border flex items-center justify-center text-(--main);
+	}
+
+	&.name {
+		@apply cursor-default transition-[rotate] duration-200 ease-out;
+	}
+
+	&.click {
+		@apply absolute z-10 p-0 font-(family-name:--font2) text-2xl [writing-mode:initial];
+		animation: shadow 0.6s alternate infinite;
+	}
+	&.click:hover ~ &#name2 {
+		@apply rotate-45;
+	}
+
+	@media (max-width: 1400px) {
+		@apply size-24;
+	}
+	@media (max-width: 1152px) {
+		@apply size-20;
+	}
+	@media (max-width: 480px) {
+		@apply size-16;
+	}
+
+	@media (max-width: 895px) {
+		&.click {
+			@apply invisible;
+		}
+	}
+}
+
+.text {
+	@apply flex flex-col gap-10 items-end absolute z-50 break-keep text-8xl whitespace-pre;
+
+	&.hello {
+		@apply left-24 top-24;
+	}
+	&.textbox {
+		@apply w-97 z-30;
+	}
+
+	@media (max-width: 1400px) {
+		font-size: 5rem;
+		&.textbox {
+			@apply w-82;
+		}
+	}
+	@media (max-width: 1152px) {
+		font-size: 4rem;
+		&.textbox {
+			@apply gap-5 w-max h-70 [writing-mode:vertical-rl];
+		}
+	}
+	@media (max-width: 895px) {
+		&.textbox {
+			@apply right-16 bottom-16;
+		}
+	}
+	@media (max-width: 480px) {
+		@apply text-5xl;
+		&.textbox {
+			@apply gap-4 h-58;
+		}
+		&.hello {
+			@apply left-20 top-20;
+		}
+	}
+}
+
+.circleLine {
+	@apply absolute w-0 left-1/2 -translate-x-1/2 inset-y-0 flex justify-center items-center;
+
+	@media (max-width: 895px) {
+		@apply invisible;
+		& + .door {
+			@apply invisible;
+		}
+	}
+}
+
+.circle {
+	@apply absolute top-1/2 size-50 rounded-full border-2 border-(--main) flex items-center justify-center;
+
+	&::before {
+		@apply content-[''] absolute inset-[25%] rounded-full bg-(--bg) border-2 border-(--main);
+	}
+	&.c1 {
+		@apply right-full -translate-y-1/2 translate-x-1/2;
+		clip-path: inset(0 50% 0 0);
+	}
+	&.c2 {
+		@apply left-full -translate-1/2;
+		clip-path: inset(0 0 0 50%);
+	}
+}
+.cl {
+	@apply w-0.5 h-full bg-(--main) z-1;
+}
+
+.door {
+	@apply absolute h-full border-x border-(--main);
+}
+
+.scroll {
+	@apply absolute bottom-20 left-1/2 -translate-1/2 rounded-full border-2 border-(--main) px-1 pt-4 pb-10 text-(--main) font-bold cursor-default shadow-(--shadow4);
+	&::after {
+		@apply content-[''] absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-1/5 w-0.5 h-3 rounded-lg bg-(--main) shadow-(--shadow4);
+		animation: tok 0.6s ease-out alternate infinite;
+	}
+
+	@media (max-width: 1152px) {
+		@apply left-20 bottom-20 translate-none transform-none!;
+	}
+	@media (max-width: 480px) {
+		@apply text-xs left-8 bottom-1/2 translate-y-1/2;
+	}
+}
+
+.skip {
+	@apply absolute top-20 right-20 text-(--main) font-bold text-2xl h-8 flex items-center;
+	&::before {
+		@apply content-[''] h-full aspect-square;
+		background: url('./skip.svg') center / contain no-repeat;
+	}
+	&:hover::before {
+		animation: skip 0.3s ease-out alternate infinite;
+	}
+	@media (max-width: 895px) {
+		@apply invisible;
+	}
+}

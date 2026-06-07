@@ -18,12 +18,12 @@ export const aniTL = (isMax = true) => {
 		.from('.lb', { xPercent: 100, yPercent: -100, opacity: 0 }, '<')
 		.from('.rb', { xPercent: -100, yPercent: -100, opacity: 0 }, '<')
 		.fromTo(
-			'#textBox',
+			'.textbox',
 			{ right: '50%', bottom: '50%', xPercent: 50, yPercent: 50 },
 			{ right: '6rem', bottom: '6rem', xPercent: 0, yPercent: 0 },
 			'<'
 		)
-		.from('#hello', { clipPath: 'inset(0 100% 0 0)', opacity: 0 })
+		.from('.hello', { clipPath: 'inset(0 100% 0 0)', opacity: 0 })
 		.from('.text1', { clipPath: 'inset(100% 0 0)', opacity: 0 }, '<')
 		.from('.text2', { clipPath: 'inset(0 0 100%)', opacity: 0 }, '<')
 		.fromTo('.name', { color: 'transparent' }, { color: 'var(--main)' })
@@ -40,9 +40,9 @@ export const aniTL = (isMax = true) => {
 		.to('.rt', { clipPath: 'inset(0 0 100% 100%)' }, '<')
 		.to('.lb', { clipPath: 'inset(100% 100% 0 0)' }, '<')
 		.to('.rb', { clipPath: 'inset(100% 0 0 100%)' }, '<')
-		.to(['#hello', '#textBox'], { opacity: 0 }, '<')
-		.to('#hello', { clipPath: 'inset(0 100% 0 0)' }, '<')
-		.to('#textBox > div', { clipPath: 'inset(0 0 0 100%)' }, '<')
+		.to(['.hello', '.textbox'], { opacity: 0 }, '<')
+		.to('.hello', { clipPath: 'inset(0 100% 0 0)' }, '<')
+		.to('.textbox > div', { clipPath: 'inset(0 0 0 100%)' }, '<')
 		.to('.door', { width: '100%' }, '<')
 		.to('.circleLine', { width: '100%' }, '<')
 		.to('.skip', { clipPath: 'inset(0 0 0 100%)' }, '<')

@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import './assets/fonts/font.css';
 import 'devicon/devicon.min.css';
+import './style/page.css';
+import './style/intro.css';
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
